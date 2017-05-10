@@ -1,3 +1,8 @@
+---
+layout: post
+title: Controlling QLab Wirelessly Using Motion Sensors and a Raspberry Pi
+---
+
 # Controlling QLab Wirelessly Using Motion Sensors and a Raspberry Pi
 ## Overview 
 TODO
@@ -18,6 +23,7 @@ The following components are required for this setup.
 ## Hardware Setup
 
 Setup the Raspberry Pi and the PiShield following the directions [here](https://infusionsystems.com/pishield/documentation/hardware-setup/).  In the case of the Pi Zero, the male header will need to be soldered to the board.  The final result should look as follows:
+
 ![Hardware Setup](/images/1.png)
 
 ## Headless Raspberry Pi Setup
@@ -25,11 +31,14 @@ I opted for setting up the Raspberry Pi without using a keyboard or monitor atta
 
 ### Step 1: Download Raspbian
 You can download Raspbian image from [here](https://www.raspberrypi.org/downloads/raspbian/).  Download Raspbian Jessie with Pixel.  The Lite version may work, but I have not tried it.  At the time of this writing, I downloaded the April 2017 version.
+
 ![Download Raspbian](/images/download_raspbian.png)
+
 Unzip the downloaded file.  You should have an .iso file similar to the name *2017-04-10-raspbian-jessie.img*
 
 ### Step 2: Write ISO Image to SD Card
 The Raspbian image needs to be written to the SD card so the Raspberry Pi can boot off the image.  [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) can be used to write the ISO image to an SD card on Windows.  [Etcher](https://etcher.io/) can also be used which supports Mac, Linux, and Windows.  Instructions are [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).  
+
 ![Write ISO Image to SD Card](/images/write-image-to-sd-card.png)
 
 ### Step 3: Enable SSH and Configure WIFI
@@ -61,12 +70,15 @@ We need to configure and install the appropriate software onto the Raspberry Pi 
 
 ### Step 1: SSH into the Raspberry Pi
 Because we are using a Headless setup, we will setup and configure the Raspberry Pi over SSH.  [Putty](http://www.putty.org/) is the Windows client I typically use for SSH sessions.  Connect to the Raspberry Pi using the IP address previously discovered.  
+
 ![SSH into the Raspberry Pi](/images/ssh-into-the-raspberry-pi.png)
+
 The default credentials are:
 ```
 login as: pi
 password: raspberry
 ```
+
 ![SSH into the Raspberry Pi](/images/ssh-into-the-raspberry-pi-user-pass.png)
 
 ### Step 2: Basic Configuration
@@ -74,7 +86,9 @@ Configure the basic settings of the Raspberry Pi.  Run the following command:
 ```
 sudo raspi-config
 ```
+
 ![Basic Configuration](/images/basic-configuration.png)
+
 Using the Raspberry Pi Software Configuration Tool, configure the following:
 
 1. Boot Options > Desktop / CLI > Console
