@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Controlling QLab Wirelessly Using Motion Sensors and a Raspberry Pi
+published: true
 ---
 
-# Controlling QLab Wirelessly Using Motion Sensors and a Raspberry Pi
 ## Overview 
 TODO
 
