@@ -5,20 +5,27 @@ published: true
 ---
 
 ## Overview 
-TODO
+This year, we are setting up Halloween scenes that are triggered by motion.  As someone passes by the scene, the scene is triggered.  We are using [QLab](https://figure53.com/qlab/) to control our scenes.  QLab is show control software for the Mac.
+
+I wanted the ability to trigger QLab's playback, from motion sensors, wirelessly.  QLab supports trigger notifications via [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) (Open Sound Control) network commands.  
+
+[I-CubeX](http://infusionsystems.com/) recently released the [PiShield](https://infusionsystems.com/pishield/) for the Raspberry Pi that supports interfacing sensors to the Raspberry Pi.  The Raspberry Pi supports [Node-Red](https://nodered.org/), which is a programming tool for wiring together hardware devices, APIs and online services.  Node-Red will be able to convert sensor data to OSC messages.  The Raspberry Pi Zero W supports WIFI and will be able to transmit the sensor data wirelessly to QLab.
+
+I primarily wanted to keep track of the steps I took to set this up.  This article is work in progress.
 
 ## Components
 The following components are required for this setup.
- - [Raspberry Pi Zero W](https://www.raspberrypi.org/products/pi-zero-w/) 
+ - [Raspberry Pi Zero W](https://www.raspberrypi.org/products/pi-zero-w/)
  - [Raspberry Pi Power Supply](https://www.raspberrypi.org/products/universal-power-supply/)
+ - 8GB Micro SD Card
+ - Micro SD Card Reader/Writer
  - [I-CubeX PiShield](https://infusionsystems.com/pishield/)
  - [Board-To-Board Connector](http://www.newark.com/amp-te-connectivity/2-826925-0/connector-header-40-position-2row/dp/12H4415)
- - Micro SD Card
- - Micro SD Card Reader/Writer
+ - [Motion Sensors](http://infusionsystems.com/catalog/product_info.php/products_id/413) - Up to 8 are supported
  - [QLab](https://figure53.com/qlab/)
  - Wireless WIFI Network
 
-![Components](/images/1.png)
+![Components](/images/components.jpg)
 
 ## Hardware Setup
 
@@ -82,6 +89,12 @@ password: raspberry
 ![SSH into the Raspberry Pi](/images/ssh-into-the-raspberry-pi-user-pass.png)
 
 ### Step 2: Basic Configuration
+Set the clock.  The current date must not be too many days off, otherwise the NTPD service will not set the actual date.  Set the date to the current date.
+```
+sudo date -s "2017-05-10"
+```
+
+
 Configure the basic settings of the Raspberry Pi.  Run the following command:
 ```
 sudo raspi-config
@@ -92,6 +105,7 @@ sudo raspi-config
 Using the Raspberry Pi Software Configuration Tool, configure the following:
 
 1. Boot Options > Desktop / CLI > Console
+1. Boot Options > Wait for Network at Boot > Yes
 1. Localisation Options > Change Locale > [en_US.UTF-8 UTF-8]
 1. Localisation Options > Change Timezone > [US > Eastern]
 1. Interfacing Options > SPI / YES
@@ -134,6 +148,11 @@ Set Node-Red to Auto Start
 ```
 cd ~
 sudo systemctl enable nodered.service
+```
+
+Start Node-Red in background (Node-Red will start automatically on boot.)
+```
+node-red-start&
 ```
 
 ## Setup Node-Red Flow
