@@ -33,8 +33,7 @@ The following components are required for this setup.
  - [QLab](https://figure53.com/qlab/)
  - Wireless WIFI Network
 
-![Components](/images/hardware-setup-1.jpg)
-![Components](/images/hardware-setup-2.jpg)
+![Components](/images/components.jpg)
 
 ## Hardware Setup
 
@@ -42,7 +41,8 @@ Setup the Raspberry Pi and the PiShield following the directions [here](https://
 In the case of the Pi Zero, the male header will need to be soldered to the board.
 The final result should look as follows:
 
-![Hardware Setup](/images/1.png)
+![Hardware Setup](/images/hardware-setup-1.jpg)
+![Hardware Setup](/images/hardware-setup-2.jpg)
 
 ## Headless Raspberry Pi Setup
 I opted for setting up the Raspberry Pi without using a keyboard or monitor attached to the Raspberry Pi.
