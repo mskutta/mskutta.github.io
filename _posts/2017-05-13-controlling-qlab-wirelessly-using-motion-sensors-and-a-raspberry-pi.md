@@ -33,7 +33,8 @@ The following components are required for this setup.
  - [QLab](https://figure53.com/qlab/)
  - Wireless WIFI Network
 
-![Components](/images/components.jpg)
+![Components](/images/hardware-setup-1.jpg)
+![Components](/images/hardware-setup-2.jpg)
 
 ## Hardware Setup
 
@@ -189,7 +190,7 @@ Start Node-Red in background (Node-Red will start automatically on next boot.)
 node-red-start&
 ```
 
-## Setup Node-Red Flow
+## Setup Node-Red
 
 Now, we need to configure Node-Red to read the montion sensor(s) and send OSC commands to QLab.
 
@@ -199,7 +200,7 @@ Multiple sensors can be used following the same process.
 ### Step 1: Connect to Node-Red
 
 Node-Red runs on the default port of 1880.
-To access node-red open a browser and navigate to **http://<Raspberry Pi IP Address>:1880/**.  Note: use the IP address you determined earlier.
+To access node-red open a browser and navigate to **http://[Raspberry Pi IP Address]:1880/**.  Note: use the IP address you determined earlier.
 
 ![SSH into the Raspberry Pi](/images/connect-to-node-red.png)
 
@@ -226,6 +227,7 @@ Clicking start will start the polling of the sensor(s).
 Clicking stop will stop the polling of the sensor(s).
 
 ### Step 3: Send OSC Commands
+
 The next step is to use the results from the sensor aquisition to send OSC commands.
 The mcp3008 node polls the sensor(s) every 100ms and the value(s) are sent to subsequent nodes.
 The resulting values need to be converted into motion or no motion.
@@ -274,11 +276,13 @@ I used [this](http://nodered.org/docs/writing-functions.html) reference to devel
 The **/cue/...** is a ![Change Node](/images/change-node.png) node that converts the message to OSC data.
 The OSC Path is set using msg.topic.
 In this example, the payload is not needed.
-It is connected to the motion started output of the motion switch node. The settings are as follows:
+It is connected to the motion started output of the motion switch node.
+The settings are as follows:
 
 ![Change Node Settings](/images/change-node-settings.png)
 
-I used [this](https://figure53.com/docs/qlab/v4/control/using-osc-to-control-qlab/) and [this](https://figure53.com/docs/qlab/v3/scripting/osc-dictionary-v3/) reference to determine the OSC message.
+I used [this](https://figure53.com/docs/qlab/v4/control/using-osc-to-control-qlab/) and [this](https://figure53.com/docs/qlab/v3/scripting/osc-dictionary-v3/) reference to determine the OSC message to send to QLab.
+In this case the message triggers playback of cue #1.1.3
 
 
 Next the ![OSC Node](/images/osc-node.png) node converts the data to an OSC message
@@ -452,3 +456,6 @@ The complete Node-Red settings are as follows:
 
 ```
 
+## Setup QLab
+
+TODO
