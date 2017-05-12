@@ -236,7 +236,219 @@ The transition from no motion to motion, can then be converted into an OSC messa
 
 
 The **motion switch** is a ![Function Node](/images/function-node.png) node.
-Custom code will be used to keep 
+Custom code is used to detect changes in motion and trigger 1 of 2 outputs.
+The first output sends a message when motion starts.
+The second output sends a message when motion ends.
+Settings are as follows:
 
- https://figure53.com/docs/qlab/v4/control/using-osc-to-control-qlab/
- https://figure53.com/docs/qlab/v3/scripting/osc-dictionary-v3/
+![Function Node Settings](/images/function-node-settings.png)
+
+The complete code is
+
+```javascript
+// Determine the state of the sensor. 1 = motion
+var state = (msg.payload === 0) ? 0 : 1;
+
+// Get the last state
+var last = context.get('last')||0;
+
+// Only process changes in state
+if (state === last) {
+    return [ null, null ];
+}
+
+// Store the state for next time
+context.set('last',state);
+
+// Based on state, return output
+if (state === 1) {
+    return [ msg, null ];
+} else {
+    return [ null, msg ];
+}
+```
+
+I used [this](http://nodered.org/docs/writing-functions.html) reference to develop the code.
+
+
+The **/cue/...** is a ![Change Node](/images/change-node.png) node that converts the message to OSC data.
+The OSC Path is set using msg.topic.
+In this example, the payload is not needed.
+It is connected to the motion started output of the motion switch node. The settings are as follows:
+
+![Change Node Settings](/images/change-node-settings.png)
+
+I used [this](https://figure53.com/docs/qlab/v4/control/using-osc-to-control-qlab/) and [this](https://figure53.com/docs/qlab/v3/scripting/osc-dictionary-v3/) reference to determine the OSC message.
+
+
+Next the ![OSC Node](/images/osc-node.png) node converts the data to an OSC message
+
+Finally the **QLab** node, which is a ![TCP Request Node](/images/tcp-request-node.png), sends the OSC message to QLab.
+This the IP Address and OSC Port of QLab are registered here.
+Use the same method to get the IP address of the QLab Mac as used to determine the Raspberry Pi IP Address.
+Here are the settings used in my case:
+
+![Change Node Settings](/images/udp-out-node-settings.png)
+
+Be sure to click the ![Deploy](/images/deploy-button.png) button to save changes.
+
+The complete Node-Red settings are as follows:
+
+```json
+[
+    {
+        "id": "8868aa19.83a248",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "a2b77e56.ec95f",
+        "type": "mcp3008",
+        "z": "8868aa19.83a248",
+        "name": "PiShield-CH0",
+        "device": "/dev/spidev0.0",
+        "mode": "0x80",
+        "interval": "100",
+        "x": 313.1000099182129,
+        "y": 75.00000381469727,
+        "wires": [
+            [
+                "19ecaf33.969551"
+            ]
+        ]
+    },
+    {
+        "id": "125a1636.bf6a1a",
+        "type": "inject",
+        "z": "8868aa19.83a248",
+        "name": "start",
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 84.10000610351562,
+        "y": 44.800002098083496,
+        "wires": [
+            [
+                "a2b77e56.ec95f"
+            ]
+        ]
+    },
+    {
+        "id": "7158a004.84109",
+        "type": "inject",
+        "z": "8868aa19.83a248",
+        "name": "stop",
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 84.10000991821289,
+        "y": 107.80000495910645,
+        "wires": [
+            [
+                "a2b77e56.ec95f"
+            ]
+        ]
+    },
+    {
+        "id": "8706555e.921028",
+        "type": "osc",
+        "z": "8868aa19.83a248",
+        "name": "",
+        "path": "",
+        "metadata": false,
+        "x": 107.1001091003418,
+        "y": 320.99999618530273,
+        "wires": [
+            [
+                "57b9f7c4.cd8a08",
+                "c5d32123.e0512"
+            ]
+        ]
+    },
+    {
+        "id": "57b9f7c4.cd8a08",
+        "type": "udp out",
+        "z": "8868aa19.83a248",
+        "name": "QLab",
+        "addr": "10.81.95.117",
+        "iface": "",
+        "port": "53000",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 335.1000099182129,
+        "y": 285.80002212524414,
+        "wires": []
+    },
+    {
+        "id": "c5d32123.e0512",
+        "type": "debug",
+        "z": "8868aa19.83a248",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 335.1000099182129,
+        "y": 356.5999984741211,
+        "wires": []
+    },
+    {
+        "id": "150291d7.947bde",
+        "type": "change",
+        "z": "8868aa19.83a248",
+        "name": "/cue/1.1.3/start",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "/cue/1.1.3/start",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 337.1000099182129,
+        "y": 198.00002098083496,
+        "wires": [
+            [
+                "8706555e.921028"
+            ]
+        ]
+    },
+    {
+        "id": "19ecaf33.969551",
+        "type": "function",
+        "z": "8868aa19.83a248",
+        "name": "motion switch",
+        "func": "// Determine the state of the sensor. 1 = motion\nvar state = (msg.payload === 0) ? 0 : 1;\n\n// Get the last state\nvar last = context.get('last')||0;\n\n// Only process changes in state\nif (state === last) {\n    return [ null, null ];\n}\n\n// Store the state for next time\ncontext.set('last',state);\n\n// Based on state, return output\nif (state === 1) {\n    return [ msg, null ];\n} else {\n    return [ null, msg ];\n}\n",
+        "outputs": "2",
+        "noerr": 0,
+        "x": 135.10006713867188,
+        "y": 204.19998741149902,
+        "wires": [
+            [
+                "150291d7.947bde"
+            ],
+            []
+        ]
+    }
+]
+
+```
+
