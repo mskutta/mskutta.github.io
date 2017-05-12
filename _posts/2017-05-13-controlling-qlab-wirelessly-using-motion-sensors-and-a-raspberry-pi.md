@@ -150,11 +150,42 @@ cd ~
 sudo systemctl enable nodered.service
 ```
 
-Start Node-Red in background (Node-Red will start automatically on boot.)
+Start Node-Red in background (Node-Red will start automatically on next boot.)
 ```
 node-red-start&
 ```
 
 ## Setup Node-Red Flow
 
-TODO
+Now, we need to configure Node-Red to read the montion sensor(s) and send OSC commands to QLab.
+
+The examples below cover 1 motion sensor.  Multiple sensors can be used following the same process.
+
+### Step 1: Connect to Node-Red
+
+Node-Red runs on the default port of 1880.  To access node-red open a browser and navigate to **http://<Raspberry Pi IP Address>:1880/**.  Note: use the IP address you determined earlier.
+
+![SSH into the Raspberry Pi](/images/connect-to-node-red.png)
+
+### Step 2: Sensor Acquisition
+
+First we need to aquire the values from the motion sensor.  I followed the example from [here](https://infusionsystems.com/pishield/node-red-sensor-acquisition/) to get started.
+
+![SSH into the Raspberry Pi](/images/node-red-sensor-acquisition.png)
+
+The start and stop are ![Inject Node](/images/inject-node.png) nodes with the following settings:
+
+![Inject Node Settings](/images/inject-node-settings.png)
+
+The PiShield-CH0 is a ![mcp3008 Node](/images/mcp3008-node.png) nodes with the following settings:
+
+![mcp3008 Node Settings](/images/mcp3008-node-settings.png)
+
+Mode is set to read the sensor plugged into channel 0.
+
+### Step 3: Send OSC Command
+
+
+
+ https://figure53.com/docs/qlab/v4/control/using-osc-to-control-qlab/
+ https://figure53.com/docs/qlab/v3/scripting/osc-dictionary-v3/
