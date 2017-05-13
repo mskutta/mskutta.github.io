@@ -1,8 +1,14 @@
 ---
 layout: post
-title: Controlling QLab Wirelessly Using Motion Sensors and a Raspberry Pi
-published: true
+title: "Controlling QLab Wirelessly using Motion Sensors"
+date:   2017-05-13 00:00:00 -0500
+categories: Halloween
+tags: QLab Raspberry-PI OSC PiShield
+author: Mike Skutta
 ---
+
+* content
+{:toc}
 
 ## Overview 
 This year, we are setting up Halloween scenes that are triggered by motion.
@@ -12,6 +18,9 @@ QLab is show control software for the Mac.
 
 I wanted the ability to trigger QLab's playback, from motion sensors, wirelessly.
 QLab supports trigger notifications via [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) (Open Sound Control) network commands.  
+
+
+
 
 [I-CubeX](http://infusionsystems.com/) recently released the [PiShield](https://infusionsystems.com/pishield/) for the Raspberry Pi that supports interfacing sensors to the Raspberry Pi.
 The Raspberry Pi supports [Node-Red](https://nodered.org/), which is a programming tool for wiring together hardware devices, APIs and online services.
