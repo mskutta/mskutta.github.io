@@ -25,10 +25,9 @@ QLab supports trigger notifications via [OSC](https://en.wikipedia.org/wiki/Open
 [I-CubeX](http://infusionsystems.com/) recently released the [PiShield](https://infusionsystems.com/pishield/) for the Raspberry Pi that supports interfacing sensors to the Raspberry Pi.
 The Raspberry Pi supports [Node-Red](https://nodered.org/), which is a programming tool for wiring together hardware devices, APIs and online services.
 Node-Red will be able to convert sensor data to OSC messages.
-The Raspberry Pi Zero W supports WIFI and will be able to transmit the sensor data wirelessly to QLab.
+The Raspberry Pi Zero W supports Wi-Fi and will be able to transmit the sensor data wirelessly to QLab.
 
 I primarily wanted to keep track of the steps I took to set this up.
-This article is work in progress.
 
 ## Components
 The following components are required for this setup.
@@ -40,7 +39,7 @@ The following components are required for this setup.
  - [Board-To-Board Connector](http://www.newark.com/amp-te-connectivity/2-826925-0/connector-header-40-position-2row/dp/12H4415)
  - [Motion Sensors](http://infusionsystems.com/catalog/product_info.php/products_id/413) - Up to 8 are supported
  - [QLab](https://figure53.com/qlab/)
- - Wireless WIFI Network
+ - Wireless Wi-Fi Network
 
 ![Components](/images/components.jpg)
 
@@ -77,10 +76,10 @@ Instructions are [here](https://www.raspberrypi.org/documentation/installation/i
 
 ![Write ISO Image to SD Card](/images/write-image-to-sd-card.png)
 
-### Step 3: Enable SSH and Configure WIFI
+### Step 3: Enable SSH and Configure Wi-Fi
 In order to initially allow SSH access to the Raspberry Pi, an empty **ssh** file needs to be added to the root of the boot partition on the SD card.
 
-To support WIFI, create a **wpa_supplicant.conf** file, that contains your WiFi settings.
+To support Wi-Fi, create a **wpa_supplicant.conf** file that contains your Wi-Fi settings.
 This file also needs to be added to the root of the boot partition on the SD card.
 The contents of the file should be as follows:
 
@@ -93,7 +92,10 @@ network={
 }
 ```
 
-![Enable SSH and Configure WIFI](/images/enable-ssh-and-configure-wifi.png)
+Update SSID and PASSWORD with your Wi-Fi info.
+Add the files to the root folder of the SD card:
+
+![Enable SSH and Configure Wi-Fi](/images/enable-ssh-and-configure-wifi.png)
 
 ### Step 4: Boot the Raspberry Pi
 Insert the SD you prepared into the Raspberry Pi.
@@ -126,8 +128,8 @@ password: raspberry
 
 ### Step 2: Basic Configuration
 Set the clock.
-The current date must not be too many days off, otherwise the NTPD service will not set the actual date.
-Set the date to the current date.
+The current date cannot not be too many days off, otherwise the NTPD (automatically sets the time) service will not set the actual date.
+Set the date to the current date: Note: replace *2017-05-10* with the current date
 ```
 sudo date -s "2017-05-10"
 ```
@@ -141,7 +143,7 @@ sudo raspi-config
 
 ![Basic Configuration](/images/basic-configuration.png)
 
-Using the Raspberry Pi Software Configuration Tool, configure the following:
+Using the Raspberry Pi Software Configuration Tool (shown above), configure the following:
 
 1. Boot Options > Desktop / CLI > Console
 1. Boot Options > Wait for Network at Boot > Yes
@@ -176,19 +178,18 @@ Create the .node-red folder to hold the add-ons
 cd ~
 mkdir .node-red
 ```
-Install Node-Red mcp3008 support.
-[Reference](https://infusionsystems.com/pishield/node-red-sensor-acquisition/)
+Install Node-Red [mcp3008](https://www.npmjs.com/package/mcp3008) support.
+[iCube-x Reference](https://infusionsystems.com/pishield/node-red-sensor-acquisition/)
 ```
 cd ~/.node-red
 npm install mcp3008
 ```
-Install Node-Red OSC support.
-[Reference](https://www.npmjs.com/package/node-red-contrib-osc)
+Install Node-Red [OSC](https://www.npmjs.com/package/node-red-contrib-osc) support.
 ```
 cd ~/.node-red
 npm install node-red-contrib-osc
 ```
-Set Node-Red to Auto Start
+Set Node-Red to Auto Start when booting up the Raspberry Pi
 ```
 cd ~
 sudo systemctl enable nodered.service
@@ -201,7 +202,7 @@ node-red-start&
 
 ## Setup Node-Red
 
-Now, we need to configure Node-Red to read the montion sensor(s) and send OSC commands to QLab.
+Now, we need to configure Node-Red to read the motion sensor(s) and send OSC commands to QLab.
 
 The examples below cover 1 motion sensor.
 Multiple sensors can be used following the same process.
@@ -209,13 +210,14 @@ Multiple sensors can be used following the same process.
 ### Step 1: Connect to Node-Red
 
 Node-Red runs on the default port of 1880.
-To access node-red open a browser and navigate to **http://[Raspberry Pi IP Address]:1880/**.  Note: use the IP address you determined earlier.
+To access node-red open a browser and navigate to **http://[Raspberry Pi IP Address]:1880/**.
+> Note: use the IP address you determined earlier.
 
 ![SSH into the Raspberry Pi](/images/connect-to-node-red.png)
 
 ### Step 2: Sensor Acquisition
 
-First we need to aquire the values from the motion sensor.
+First we need to acquire the values from the motion sensor.
 I followed the example from [here](https://infusionsystems.com/pishield/node-red-sensor-acquisition/) to get started.
 
 ![SSH into the Raspberry Pi](/images/node-red-sensor-acquisition.png)
@@ -230,16 +232,17 @@ The PiShield-CH0 is a ![mcp3008 Node](/images/mcp3008-node.png) node with the fo
 
 ![mcp3008 Node Settings](/images/mcp3008-node-settings.png)
 
-Mode is set to read the sensor plugged into channel 0.
+The Mode field is set to read the sensor plugged into channel 0.
 
 Clicking start will start the polling of the sensor(s).
 Clicking stop will stop the polling of the sensor(s).
+> Remember to always click start for everything to run.  
 
 ### Step 3: Send OSC Commands
 
-The next step is to use the results from the sensor aquisition to send OSC commands.
+The next step is to use the results from the sensor acquisition to send OSC commands.
 The mcp3008 node polls the sensor(s) every 100ms and the value(s) are sent to subsequent nodes.
-The resulting values need to be converted into motion or no motion.
+The resulting values need to be interpreted into motion or no motion.
 Only the transitions between motion and no motion should be passed on.
 The transition from no motion to motion, can then be converted into an OSC message and sent to QLab.
 
@@ -292,6 +295,7 @@ The settings are as follows:
 
 I used [this](https://figure53.com/docs/qlab/v4/control/using-osc-to-control-qlab/) and [this](https://figure53.com/docs/qlab/v3/scripting/osc-dictionary-v3/) reference to determine the OSC message to send to QLab.
 In this case the message triggers playback of cue #1.1.3
+You can update this to whatever OSC command you want to send to QLab.
 
 
 Next the ![OSC Node](/images/osc-node.png) node converts the data to an OSC message
@@ -299,6 +303,7 @@ Next the ![OSC Node](/images/osc-node.png) node converts the data to an OSC mess
 Finally the **QLab** node, which is a ![TCP Request Node](/images/tcp-request-node.png), sends the OSC message to QLab.
 This the IP Address and OSC Port of QLab are registered here.
 Use the same method to get the IP address of the QLab Mac as used to determine the Raspberry Pi IP Address.
+Port 53000 is the default port QLab uses to receive OSC messages.
 Here are the settings used in my case:
 
 ![Change Node Settings](/images/udp-out-node-settings.png)
@@ -465,6 +470,9 @@ The complete Node-Red settings are as follows:
 
 ```
 
-## Setup QLab
+## Running
 
-TODO
+1. Make sure the sensor(s) are plugged in and the Raspberry Pi is powered on.
+1. Navigate to http://[RASPBERRY PI IP ADDRESS]:1880/
+1. Click the **Start** (inject node)
+1. The Raspberry Pi will now send OSC commands to QLab.
