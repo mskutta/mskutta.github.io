@@ -41,7 +41,7 @@ The following components are required for this setup.
  - [QLab](https://figure53.com/qlab/)
  - Wireless Wi-Fi Network
 
-![Components](/images/components.jpg)
+![Components](/images/controlling-qlab-wirelessly-using-motion-sensors/components.jpg)
 
 ## Hardware Setup
 
@@ -49,8 +49,8 @@ Setup the Raspberry Pi and the PiShield following the directions [here](https://
 In the case of the Pi Zero, the male header will need to be soldered to the board.
 The final result should look as follows:
 
-![Hardware Setup](/images/hardware-setup-1.jpg)
-![Hardware Setup](/images/hardware-setup-2.jpg)
+![Hardware Setup](/images/controlling-qlab-wirelessly-using-motion-sensors/hardware-setup-1.jpg)
+![Hardware Setup](/images/controlling-qlab-wirelessly-using-motion-sensors/hardware-setup-2.jpg)
 
 ## Headless Raspberry Pi Setup
 I opted for setting up the Raspberry Pi without using a keyboard or monitor attached to the Raspberry Pi.
@@ -63,7 +63,7 @@ Download Raspbian Jessie with Pixel.
 The Lite version may work, but I have not tried it.
 At the time of this writing, I downloaded the April 2017 version.
 
-![Download Raspbian](/images/download_raspbian.png)
+![Download Raspbian](/images/controlling-qlab-wirelessly-using-motion-sensors/download_raspbian.png)
 
 Unzip the downloaded file.
 You should have an .iso file similar to the name *2017-04-10-raspbian-jessie.img*
@@ -74,7 +74,7 @@ The Raspbian image needs to be written to the SD card so the Raspberry Pi can bo
 [Etcher](https://etcher.io/) can also be used which supports Mac, Linux, and Windows.
 Instructions are [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).  
 
-![Write ISO Image to SD Card](/images/write-image-to-sd-card.png)
+![Write ISO Image to SD Card](/images/controlling-qlab-wirelessly-using-motion-sensors/write-image-to-sd-card.png)
 
 ### Step 3: Enable SSH and Configure Wi-Fi
 In order to initially allow SSH access to the Raspberry Pi, an empty **ssh** file needs to be added to the root of the boot partition on the SD card.
@@ -95,7 +95,7 @@ network={
 Update SSID and PASSWORD with your Wi-Fi info.
 Add the files to the root folder of the SD card:
 
-![Enable SSH and Configure Wi-Fi](/images/enable-ssh-and-configure-wifi.png)
+![Enable SSH and Configure Wi-Fi](/images/controlling-qlab-wirelessly-using-motion-sensors/enable-ssh-and-configure-wifi.png)
 
 ### Step 4: Boot the Raspberry Pi
 Insert the SD you prepared into the Raspberry Pi.
@@ -106,7 +106,7 @@ You can use an app such as [Fing](https://www.fing.io/) to discover the IP addre
 Alternatively, you can look at what IP address your router assigned to the Raspberry Pi.
 Remember this IP address as you will need it later.
 
-![Determine the IP address of the Raspberry Pi](/images/determine-ip-address-of-the-raspberry-pi.png)
+![Determine the IP address of the Raspberry Pi](/images/controlling-qlab-wirelessly-using-motion-sensors/determine-ip-address-of-the-raspberry-pi.png)
 
 ## Configure the Raspberry Pi
 We need to configure and install the appropriate software onto the Raspberry Pi for the setup to work.
@@ -116,7 +116,7 @@ Because we are using a Headless setup, we will setup and configure the Raspberry
 [Putty](http://www.putty.org/) is the Windows client I typically use for SSH sessions.
 Connect to the Raspberry Pi using the IP address previously discovered.  
 
-![SSH into the Raspberry Pi](/images/ssh-into-the-raspberry-pi.png)
+![SSH into the Raspberry Pi](/images/controlling-qlab-wirelessly-using-motion-sensors/ssh-into-the-raspberry-pi.png)
 
 The default credentials are:
 ```
@@ -124,7 +124,7 @@ login as: pi
 password: raspberry
 ```
 
-![SSH into the Raspberry Pi](/images/ssh-into-the-raspberry-pi-user-pass.png)
+![SSH into the Raspberry Pi](/images/controlling-qlab-wirelessly-using-motion-sensors/ssh-into-the-raspberry-pi-user-pass.png)
 
 ### Step 2: Basic Configuration
 Set the clock.
@@ -141,7 +141,7 @@ Run the following command:
 sudo raspi-config
 ```
 
-![Basic Configuration](/images/basic-configuration.png)
+![Basic Configuration](/images/controlling-qlab-wirelessly-using-motion-sensors/basic-configuration.png)
 
 Using the Raspberry Pi Software Configuration Tool (shown above), configure the following:
 
@@ -213,24 +213,24 @@ Node-Red runs on the default port of 1880.
 To access node-red open a browser and navigate to **http://[Raspberry Pi IP Address]:1880/**.
 > Note: use the IP address you determined earlier.
 
-![SSH into the Raspberry Pi](/images/connect-to-node-red.png)
+![SSH into the Raspberry Pi](/images/controlling-qlab-wirelessly-using-motion-sensors/connect-to-node-red.png)
 
 ### Step 2: Sensor Acquisition
 
 First we need to acquire the values from the motion sensor.
 I followed the example from [here](https://infusionsystems.com/pishield/node-red-sensor-acquisition/) to get started.
 
-![SSH into the Raspberry Pi](/images/node-red-sensor-acquisition.png)
+![SSH into the Raspberry Pi](/images/controlling-qlab-wirelessly-using-motion-sensors/node-red-sensor-acquisition.png)
 
 
-The start and stop are ![Inject Node](/images/inject-node.png) nodes with the following settings:
+The start and stop are ![Inject Node](/images/controlling-qlab-wirelessly-using-motion-sensors/inject-node.png) nodes with the following settings:
 
-![Inject Node Settings](/images/inject-node-settings.png)
+![Inject Node Settings](/images/controlling-qlab-wirelessly-using-motion-sensors/inject-node-settings.png)
 
 
-The PiShield-CH0 is a ![mcp3008 Node](/images/mcp3008-node.png) node with the following settings:
+The PiShield-CH0 is a ![mcp3008 Node](/images/controlling-qlab-wirelessly-using-motion-sensors/mcp3008-node.png) node with the following settings:
 
-![mcp3008 Node Settings](/images/mcp3008-node-settings.png)
+![mcp3008 Node Settings](/images/controlling-qlab-wirelessly-using-motion-sensors/mcp3008-node-settings.png)
 
 The Mode field is set to read the sensor plugged into channel 0.
 
@@ -246,16 +246,16 @@ The resulting values need to be interpreted into motion or no motion.
 Only the transitions between motion and no motion should be passed on.
 The transition from no motion to motion, can then be converted into an OSC message and sent to QLab.
 
-![Send OSC Commands](/images/send-osc-commands.png)
+![Send OSC Commands](/images/controlling-qlab-wirelessly-using-motion-sensors/send-osc-commands.png)
 
 
-The **motion switch** is a ![Function Node](/images/function-node.png) node.
+The **motion switch** is a ![Function Node](/images/controlling-qlab-wirelessly-using-motion-sensors/function-node.png) node.
 Custom code is used to detect changes in motion and trigger 1 of 2 outputs.
 The first output sends a message when motion starts.
 The second output sends a message when motion ends.
 Settings are as follows:
 
-![Function Node Settings](/images/function-node-settings.png)
+![Function Node Settings](/images/controlling-qlab-wirelessly-using-motion-sensors/function-node-settings.png)
 
 The complete code is
 
@@ -285,30 +285,30 @@ if (state === 1) {
 I used [this](http://nodered.org/docs/writing-functions.html) reference to develop the code.
 
 
-The **/cue/...** is a ![Change Node](/images/change-node.png) node that converts the message to OSC data.
+The **/cue/...** is a ![Change Node](/images/controlling-qlab-wirelessly-using-motion-sensors/change-node.png) node that converts the message to OSC data.
 The OSC Path is set using msg.topic.
 In this example, the payload is not needed.
 It is connected to the motion started output of the motion switch node.
 The settings are as follows:
 
-![Change Node Settings](/images/change-node-settings.png)
+![Change Node Settings](/images/controlling-qlab-wirelessly-using-motion-sensors/change-node-settings.png)
 
 I used [this](https://figure53.com/docs/qlab/v4/control/using-osc-to-control-qlab/) and [this](https://figure53.com/docs/qlab/v3/scripting/osc-dictionary-v3/) reference to determine the OSC message to send to QLab.
 In this case the message triggers playback of cue #1.1.3
 You can update this to whatever OSC command you want to send to QLab.
 
 
-Next the ![OSC Node](/images/osc-node.png) node converts the data to an OSC message
+Next the ![OSC Node](/images/controlling-qlab-wirelessly-using-motion-sensors/osc-node.png) node converts the data to an OSC message
 
-Finally the **QLab** node, which is a ![TCP Request Node](/images/tcp-request-node.png), sends the OSC message to QLab.
+Finally the **QLab** node, which is a ![TCP Request Node](/images/controlling-qlab-wirelessly-using-motion-sensors/tcp-request-node.png), sends the OSC message to QLab.
 This the IP Address and OSC Port of QLab are registered here.
 Use the same method to get the IP address of the QLab Mac as used to determine the Raspberry Pi IP Address.
 Port 53000 is the default port QLab uses to receive OSC messages.
 Here are the settings used in my case:
 
-![Change Node Settings](/images/udp-out-node-settings.png)
+![Change Node Settings](/images/controlling-qlab-wirelessly-using-motion-sensors/udp-out-node-settings.png)
 
-Be sure to click the ![Deploy](/images/deploy-button.png) button to save changes.
+Be sure to click the ![Deploy](/images/controlling-qlab-wirelessly-using-motion-sensors/deploy-button.png) button to save changes.
 
 The complete Node-Red settings are as follows:
 
