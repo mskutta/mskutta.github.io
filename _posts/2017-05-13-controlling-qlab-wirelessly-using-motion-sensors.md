@@ -3,7 +3,7 @@ layout: post
 title: "Controlling QLab Wirelessly using Motion Sensors"
 date:   2017-05-13 00:00:00 -0500
 categories: Halloween
-tags: QLab Raspberry-PI OSC PiShield
+tags: QLab Raspberry-PI OSC PiShield UniFi
 author: Mike Skutta
 ---
 
@@ -27,6 +27,11 @@ The Raspberry Pi supports [Node-Red](https://nodered.org/), which is a programmi
 Node-Red will be able to convert sensor data to OSC messages.
 The Raspberry Pi Zero W supports Wi-Fi and will be able to transmit the sensor data wirelessly to QLab.
 
+I have had really good success using the [Ubiquiti](https://www.ubnt.com/) [UniFi](https://unifi-sdn.ubnt.com/) line of Wi-Fi access points.
+I use the [UAP-AC-M](https://unifi-mesh.ubnt.com/) for outdoors.
+This works well when requiring outdoor motion sensors.
+For indoors, I use the [UAP-AC-PRO](https://www.ubnt.com/unifi/unifi-ap-ac-pro/) and [UAP-AC-HD](https://unifi-hd.ubnt.com/).
+
 I primarily wanted to keep track of the steps I took to set this up.
 
 ## Components
@@ -39,7 +44,7 @@ The following components are required for this setup.
  - [Board-To-Board Connector](http://www.newark.com/amp-te-connectivity/2-826925-0/connector-header-40-position-2row/dp/12H4415)
  - [Motion Sensors](http://infusionsystems.com/catalog/product_info.php/products_id/413) - Up to 8 are supported
  - [QLab](https://figure53.com/qlab/)
- - Wireless Wi-Fi Network
+ - [Wireless Wi-Fi Network](https://unifi-sdn.ubnt.com/)
 
 ![Components](/images/controlling-qlab-wirelessly-using-motion-sensors/components.jpg)
 
