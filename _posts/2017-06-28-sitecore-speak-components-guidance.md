@@ -12,7 +12,7 @@ author: Mike Skutta
 
 ## Overview
 
-I was recently working on a project building a custom dashboard in Sitecore. We decided to build the dashboard using SPEAK v2. The primary reason for this decision was we wanted a consistent user expereince that followed the same look and feel as the rest of the Sitecore applications.  I received the designs of the new dashboard from our design team.  I quickly noticed that the designs were not completely in line with the components that are typically seen in SPEAK UIs.  I asked the designers if they were famailr with the **SPEAK Components Guidance**; they were not aware of it.  I realized that the **SPEAK Components Guidance** may not be well known.
+I was recently working on a project building a custom dashboard in Sitecore. We decided to build the dashboard using SPEAK v2. The primary reason for this decision was we wanted a consistent user experience that followed the same look and feel as the rest of the Sitecore applications.  I received the designs of the new dashboard from our design team.  I quickly noticed that the designs were not completely in line with the components that are typically seen in SPEAK UIs.  I asked the designers if they were familiar with the **SPEAK Components Guidance**; they were not aware of it.  I realized that the **SPEAK Components Guidance** may not be well known.
 
 
 
