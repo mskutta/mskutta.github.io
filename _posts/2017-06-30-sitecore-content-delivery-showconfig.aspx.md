@@ -23,6 +23,10 @@ I just wanted to share a quick shortcut I recently used.  I had the need to view
 
 
 ``` c#
+<%--
+    This is intended to be a temporary file that must be removed when finished.    
+--%>
+
 <%@ Page Language="C#" AutoEventWireup="true" %>
 <%@ Import Namespace="Sitecore.Configuration" %>
 <%@ Import Namespace="System" %>
