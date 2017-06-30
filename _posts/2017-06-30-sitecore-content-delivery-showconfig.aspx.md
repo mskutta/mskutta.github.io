@@ -12,7 +12,7 @@ author: Mike Skutta
 
 ## Overview
 
-I just wanted to share a quick shortcut I recently used.  I had the need to view the Sitecore configuration on a content delivery server.  The problem was the content delivery server was already hardened and all non-essential files were removed, including ShowConfig.aspx. I created a temporary ShowConfig.aspx that can be dropped anywhere on the content delivery server. A request can be made against this page to return the contents of the typical show config. Once you have what you need, you MUST delete the ShowConfig.aspx as there are no security checks preventing an unauthenticated user from viewing the configuration.
+I just wanted to share a quick shortcut I recently used.  I had the need to view the Sitecore configuration on a content delivery server.  The problem was the content delivery server was already hardened and all non-essential files were removed, including ShowConfig.aspx. I created a temporary ShowConfig.aspx that can be dropped anywhere on the content delivery server. A request can be made against this page to return the contents of the typical show config. Once you have what you need, you MUST delete the temporary ShowConfig.aspx as there are no security checks preventing an unauthenticated user from viewing the configuration.
 
 
 
@@ -38,4 +38,6 @@ I just wanted to share a quick shortcut I recently used.  I had the need to view
 </script>
 ```
 
-> You MUST delete this file immediately after use as there are no security restrictions
+When you are directly on the Content Delivery server, you can use notepad to create an empty ShowConfig.aspx (or a file of another name), and paste the contents from above into that file.  This is a quick way to get a functioning ShowConfig.aspx on a server that does not normally have it.
+
+> NOTE: You MUST delete this file immediately after use as there are no security restrictions
