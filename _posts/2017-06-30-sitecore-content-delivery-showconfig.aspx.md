@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Sitecore Content Delivery ShowConfig"
+title: "Sitecore Content Delivery ShowConfig.aspx"
 date:   2017-06-30 00:00:00 -0500
 categories: Sitecore
-tags: ShowConfig CD
+tags: ShowConfig.aspx CD
 author: Mike Skutta
 ---
 
@@ -38,4 +38,4 @@ I just wanted to share a quick shortcut I recently used.  I had the need to view
 </script>
 ```
 
-> Immediately after use you MUST delete this file as there are no security restrictions
+> You MUST delete this file immediately after use as there are no security restrictions
