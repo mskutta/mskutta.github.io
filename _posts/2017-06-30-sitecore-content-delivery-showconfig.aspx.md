@@ -23,6 +23,8 @@ The name of the file should be scrambled so it is not easily discoverable.  The 
 
 To add an extra layer of security, an API Key needs to be registered in the .aspx and passed in the header when requesting the page. This prevents crawlers and others from requesting the page unless the API Key is known.  The API Key must be randomly generated and added to the .aspx.  [PostMan](https://www.getpostman.com/) can be used to send the API Key in the header.
 
+Requests to this page should be made over HTTPS / SSL to prevent others from snooping and gaining access to the configuration.  If HTTPS / SSL is not available, make the request locally on the server to prevent the request from going over the network.
+
 > NOTE: The .aspx is meant to be temporary.  Once you requested the configuration, you should delete the temporary .aspx to prevent others from requesting the config.  There is sensitive data in the configuration.
 
 
