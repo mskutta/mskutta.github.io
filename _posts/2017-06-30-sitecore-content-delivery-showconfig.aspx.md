@@ -66,5 +66,5 @@ When you are directly on the Content Delivery server, you can use notepad to cre
 
 To request the .aspx, a request needs to be made with the **apikey** in the header.  You can use [PostMan](https://www.getpostman.com/) for this.
 
-![PostMan](/images/sitecore-content-delivery-showconfig/postman.png)
+![PostMan](/images/sitecore-content-delivery-showconfig/postman2.png)
 
