@@ -7,7 +7,7 @@
 
 # Site settings
 title: Mike Skutta's Blog
-brief-intro: Software Architect
+brief-intro: 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://mskutta.github.io" # the base hostname & protocol for your site
 
