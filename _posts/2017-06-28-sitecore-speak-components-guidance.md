@@ -33,5 +33,5 @@ The navigation menu on the left provides examples of each of the components avai
 
 When designing an application in Sitecore based on SPEAK, it is helpful to use the SPEAK Components Guidance as a reference.  Using the reference, we can decide if out of the box components can be used or if a custom component is required.
 
-Brining this to the attention of the designer allowed them to update the designs to primarily use the standard SPEAK components and only a handful of custom ones.
+Bringing this to the attention of the designer allowed them to update the designs to primarily use the standard SPEAK components and only a handful of custom ones.
 
