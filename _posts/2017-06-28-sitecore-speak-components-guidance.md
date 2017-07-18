@@ -2,8 +2,8 @@
 layout: post
 title: "Sitecore SPEAK Components Guidance"
 date:   2017-06-28 00:00:00 -0500
-categories: Sitecore
-tags: SPEAK
+categories: sitecore
+tags: sitecore speak
 author: Mike Skutta
 ---
 

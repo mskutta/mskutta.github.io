@@ -2,8 +2,8 @@
 layout: post
 title: "Sitecore Experience Analytics Table Control"
 date:   2017-07-17 00:00:00 -0500
-categories: Sitecore
-tags: SPEAK Experience Analytics
+categories: sitecore
+tags: sitecore speak experience-analytics
 author: Mike Skutta
 ---
 

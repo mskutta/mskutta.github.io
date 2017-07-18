@@ -2,8 +2,8 @@
 layout: post
 title: "Controlling QLab Wirelessly using Motion Sensors"
 date:   2017-05-13 00:00:00 -0500
-categories: Halloween
-tags: QLab Raspberry-PI OSC PiShield UniFi
+categories: halloween
+tags: qlab raspberry-pi osc pishield unifi
 author: Mike Skutta
 ---
 

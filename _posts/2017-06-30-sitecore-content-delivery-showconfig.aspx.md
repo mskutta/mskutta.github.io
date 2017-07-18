@@ -2,8 +2,8 @@
 layout: post
 title: "Sitecore Content Delivery ShowConfig.aspx"
 date:   2017-06-30 00:00:00 -0500
-categories: Sitecore
-tags: ShowConfig.aspx CD
+categories: sitecore
+tags: sitecore showconfig.aspx cd
 author: Mike Skutta
 ---
 

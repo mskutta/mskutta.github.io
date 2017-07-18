@@ -2,8 +2,8 @@
 layout: post
 title: "Controlling QLab Wirelessly using Motion Sensors - Part 2"
 date:   2017-05-16 00:00:00 -0500
-categories: Halloween
-tags: QLab Raspberry-PI OSC PiShield
+categories: halloween
+tags: qlab raspberry-pi osc pishield
 author: Mike Skutta
 ---
 
