@@ -5,6 +5,10 @@ date:   2017-05-16 00:00:00 -0500
 categories: halloween
 tags: qlab raspberry-pi osc pishield
 author: Mike Skutta
+image:
+    url: /images/controlling-qlab-wirelessly-using-motion-sensors-part-2/node-red-flow.png
+    height: 948
+    width: 1920
 ---
 
 * content

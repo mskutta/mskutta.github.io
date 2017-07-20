@@ -2,9 +2,14 @@
 layout: post
 title: "Sitecore Content Delivery ShowConfig.aspx"
 date:   2017-06-30 00:00:00 -0500
+lastmod: 2017-06-30 00:00:00 -0500
 categories: sitecore
 tags: sitecore showconfig.aspx cd
 author: Mike Skutta
+image:
+    url: /images/sitecore-content-delivery-showconfig/postman2.png
+    height: 714
+    width: 846
 ---
 
 * content

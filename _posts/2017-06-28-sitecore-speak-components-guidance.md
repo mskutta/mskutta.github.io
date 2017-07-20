@@ -5,6 +5,10 @@ date:   2017-06-28 00:00:00 -0500
 categories: sitecore
 tags: sitecore speak
 author: Mike Skutta
+image:
+    url: /images/sitecore-speak-components-guidance/dashboard.png
+    height: 1024
+    width: 816
 ---
 
 * content

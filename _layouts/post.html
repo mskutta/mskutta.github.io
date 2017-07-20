@@ -102,3 +102,34 @@ layout: default
 }());
 </script>
 <script src="{{ "/js/pageContent.js " | prepend: site.baseurl }}" charset="utf-8"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "BlogPosting",
+  "headline": "{{page.title}}",
+  "author": {
+    "@type":"Person",
+    "name":"{{ page.author }}"
+  },
+  "publisher": {
+    "@type":"Organization",
+    "name":"{{ page.author }}",
+    "logo": {
+        "@type":"ImageObject",
+        "url":"{{site.url}}/images/logo.png",
+        "height":60,
+        "width":600
+    }
+  },
+  {% if page.image != null and page.image != empty %}"image": {
+      "@type":"ImageObject",
+      "url":"{{page.image.url  | prepend: site.url }}",
+      "height":{{page.image.height}},
+      "width":{{page.image.width}}
+  },{% endif %}
+  "datePublished": "{{ page.date | date: "%F" }}",
+  "dateModified": "{% if page.lastmod == null %}{{ page.date | date: "%F" }}{% else %}{{ page.lastmod | date: "%F" }}{% endif %}",
+  "mainEntityOfPage":"{{ page.url | prepend: site.url }}"
+}
+</script>

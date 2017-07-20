@@ -5,6 +5,10 @@ date:   2017-05-13 00:00:00 -0500
 categories: halloween
 tags: qlab raspberry-pi osc pishield unifi
 author: Mike Skutta
+image:
+    url: /images/controlling-qlab-wirelessly-using-motion-sensors/components.jpg
+    height: 604
+    width: 806
 ---
 
 * content
