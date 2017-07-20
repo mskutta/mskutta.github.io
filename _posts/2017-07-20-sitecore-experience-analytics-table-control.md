@@ -1,10 +1,14 @@
 ---
 layout: post
 title: "Sitecore Experience Analytics Table Control"
-date:   2017-07-17 00:00:00 -0500
+date:   2017-07-20 00:00:00 -0500
 categories: sitecore
 tags: sitecore speak experience-analytics
 author: Mike Skutta
+image:
+    url: /images/sitecore-experience-analytics-table-control/basic-sample.png
+    height: 816
+    width: 1081
 ---
 
 * content
@@ -33,5 +37,5 @@ The **Experience Analytics Table Control** supports rendering custom data within
 
 ## Source Code / Module
 
-The source code for this control has been posted to: [https://github.com/onenorth/sitecore-experience-analytics-table-control](https://github.com/onenorth/sitecore-experience-analytics-table-control).  Please follow the instructions there for further information.  This control has also been released as a Sitecore Module: [https://marketplace.sitecore.net/Modules/E/Experience_Analytics_Table_Control.aspx?sc_lang=en](https://marketplace.sitecore.net/Modules/E/Experience_Analytics_Table_Control.aspx?sc_lang=en).  The **.update** package to install is located under releases here: [https://github.com/onenorth/sitecore-experience-analytics-table-control/releases](https://github.com/onenorth/sitecore-experience-analytics-table-control/releases).
+The source code for this control has been posted to: [https://github.com/onenorth/sitecore-experience-analytics-table-control](https://github.com/onenorth/sitecore-experience-analytics-table-control).  Please follow the instructions there for further information.  <!--This control has also been released as a Sitecore Module: [https://marketplace.sitecore.net/Modules/E/Experience_Analytics_Table_Control.aspx?sc_lang=en](https://marketplace.sitecore.net/Modules/E/Experience_Analytics_Table_Control.aspx?sc_lang=en).-->  The **.update** package to install is located under releases here: [https://github.com/onenorth/sitecore-experience-analytics-table-control/releases](https://github.com/onenorth/sitecore-experience-analytics-table-control/releases).
 
