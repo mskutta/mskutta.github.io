@@ -4,7 +4,7 @@ title: Collections
 permalink: /collection/
 icon: bookmark
 type: page
-robots: noindex, nofollow
+robots: noindex
 ---
 
 * content
