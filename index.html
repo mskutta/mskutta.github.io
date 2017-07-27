@@ -12,7 +12,7 @@ robots: noindex
             {% for post in paginator.posts %}
               <li>
                 <h2>
-                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                  <a class="post-link" href="{% if post.source %}{{ post.source }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
@@ -38,7 +38,7 @@ robots: noindex
                     {{post.excerpt}}
                 </div>
                 <div class="read-all">
-                    <a  href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="{% if post.source %}{{ post.source }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
@@ -82,7 +82,7 @@ robots: noindex
                 </div>
                 <ul class="content-ul" recent>
                     {% for post in site.posts offset: 0 limit: 10  %}
-                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                        <li><a href="{% if post.source %}{{ post.source }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -173,7 +173,7 @@ robots: noindex
             {% for post in paginator.posts %}{
                 "@type":"ListItem",
                 "position":{{ forloop.index }},
-                "url":"{{ post.url | prepend: site.url }}"
+                "url":"{% if post.source %}{{ post.source }}{% else %}{{ post.url | prepend: site.baseurl | prepend: site.url }}{% endif %}"
             }{% if forloop.last == false %},{% endif %}
             {% endfor %} 
         ]
