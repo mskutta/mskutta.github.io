@@ -22,7 +22,7 @@ robots: noindex
                             <time>
                             {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
                             </time>
-                            <a class="title" href="{% if post.source %}{{ post.source }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a>
+                            <a class="title" href="{% if post.target %}{{ post.target }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a>
 
                             {% include category.html %}
                             {% include tag.html %}
