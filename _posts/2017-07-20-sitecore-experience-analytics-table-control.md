@@ -9,6 +9,7 @@ image:
     url: /images/sitecore-experience-analytics-table-control/basic-sample.png
     height: 816
     width: 1081
+excerpt: Sitecore Experience Analytics reporting supports a list control that renders tabular data.  The data includes the Key along with Visits, Value per visit, Average duration, Bounce Rate, Conversion Rate, and Page views per visit.  Only standard analytics data can be displayed in the out of the box list control.  The columns are fixed and cannot be configured.
 ---
 
 * content

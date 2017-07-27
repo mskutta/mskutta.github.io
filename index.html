@@ -69,9 +69,13 @@ robots: noindex
         <div class="wrap">
 			<!-- Content -->
             <div class="side">
-                <div class="center">
-                    <img src="/images/sitecore-mvp-technology-2017.png" alt="Sitecore MVP Technology 2017" style="max-height:150px"/>
-                    <img src="/images/sitecore-mvp-technology-2016.png" alt="Sitecore MVP Technology 2016" style="max-height:150px"/>
+                <div>
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    Sitecore MVP
+                </div>
+                <div class="content-div center">
+                    <a href="http://www.sitecore.net/mvps2017"><img src="/images/sitecore-mvp-technology-2017.png" alt="Sitecore MVP Technology 2017" style="max-height:150px"/></a>
+                    <a href="http://www.sitecore.net/en/events/public-mvp-site/mvps-2016"><img src="/images/sitecore-mvp-technology-2016.png" alt="Sitecore MVP Technology 2016" style="max-height:150px"/></a>
                 </div>
             </div>
 		
@@ -111,7 +115,7 @@ robots: noindex
                     <i class="fa fa-tags"></i>
                     Tags
                 </div>
-                <div class="tags-cloud">
+                <div class="content-div tags-cloud">
                     {% assign first = site.tags.first %}
                     {% assign max = first[1].size %}
                     {% assign min = max %}

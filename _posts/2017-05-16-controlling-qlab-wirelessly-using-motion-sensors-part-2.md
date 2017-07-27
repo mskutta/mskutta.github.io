@@ -9,14 +9,14 @@ image:
     url: /images/controlling-qlab-wirelessly-using-motion-sensors-part-2/node-red-flow.png
     height: 948
     width: 1920
+excerpt: In the last blog post, Controlling QLab Wirelessly using Motion Sensors, I talked about setting up the Raspberry Pi to send Motion data to QLab via OSC messages. In this post, I will expand on that by building out support for multiple sensors as well as providing a dashboard to display the sensor values.
 ---
 
 * content
 {:toc}
 
 ## Overview 
-In the last blog post, [Controlling QLab Wirelessly using Motion Sensors](/2017/05/13/controlling-qlab-wirelessly-using-motion-sensors/), I talked about setting up the Raspberry Pi to send Motion data to QLab via OSC messages.
-In this post, I will expand on that by building out support for multiple sensors as well as providing a dashboard to display the sensor values.
+In the last blog post, [Controlling QLab Wirelessly using Motion Sensors](/2017/05/13/controlling-qlab-wirelessly-using-motion-sensors/), I talked about setting up the Raspberry Pi to send Motion data to QLab via OSC messages. In this post, I will expand on that by building out support for multiple sensors as well as providing a dashboard to display the sensor values.
 
 
 

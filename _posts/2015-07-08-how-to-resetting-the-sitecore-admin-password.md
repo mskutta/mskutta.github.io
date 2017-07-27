@@ -6,6 +6,5 @@ categories: sitecore
 tags: sitecore password admin
 author: Mike Skutta
 source: https://www.onenorth.com/blog/post/how-to-resetting-the-sitecore-admin-password
+excerpt: In web development, it is a best practice to reset the production password of the database whenever you are pulling it down for developers to use. When doing this in Sitecore, there is a simple procedure for resetting the Admin password back to the default password of “b.” Here’s how...
 ---
-
-In web development, it is a best practice to reset the production password of the database whenever you are pulling it down for developers to use. When doing this in Sitecore, there is a simple procedure for resetting the Admin password back to the default password of “b.” Here’s how:

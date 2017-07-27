@@ -10,6 +10,7 @@ image:
     url: /images/sitecore-content-delivery-showconfig/postman2.png
     height: 714
     width: 846
+excerpt: I just wanted to share a quick shortcut I recently used.  I had the need to view the Sitecore configuration on a content delivery server.  The problem was the content delivery server was already hardened and all non-essential files were removed, including ShowConfig.aspx. I created a temporary .aspx file that can be dropped anywhere on the content delivery server. A request can be made against this page to return the contents of the typical show config.
 ---
 
 * content

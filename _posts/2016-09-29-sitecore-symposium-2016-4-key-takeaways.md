@@ -6,6 +6,5 @@ categories: sitecore
 tags: sitecore sitecore-symposium
 author: Ethel Crosby, Mike Skutta
 source: https://www.onenorth.com/blog/post/sitecore-symposium-2016-4-key-takeaways
+excerpt: The Sitecore Symposium 2016 global conference is an exponentially growing industry event that brought over two thousand Sitecore experts, digital marketers, technologists, partners and customers from around the world to learn from the best and share experiences.
 ---
-
-The Sitecore Symposium 2016 global conference is an exponentially growing industry event that brought over two thousand Sitecore experts, digital marketers, technologists, partners and customers from around the world to learn from the best and share experiences.

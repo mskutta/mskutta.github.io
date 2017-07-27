@@ -9,6 +9,7 @@ image:
     url: /images/controlling-qlab-wirelessly-using-motion-sensors/components.jpg
     height: 604
     width: 806
+excerpt: This year, we are setting up Halloween scenes that are triggered by motion. As someone passes by the scene, the scene is triggered. We are using QLab to control our scenes. QLab is show control software for the Mac. I wanted the ability to trigger QLab's playback, from motion sensors, wirelessly. QLab supports trigger notifications via OSC] (Open Sound Control) network commands.
 ---
 
 * content
