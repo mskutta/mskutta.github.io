@@ -34,7 +34,7 @@ The data scenario is when you have a bulleted list **<ul>** nested inside a **<p
 
 This is technically invalid html, as a <ul> element should not be nested inside a <p> element.  The Telerik rich text editor does allow this markup.  We had cases where this markup is present, so we needed to address this.
 
-## Who are Impacted?
+## Who Is Impacted?
 
 1. Any clients that are on version 6.5 to 8.0 of Sitecore.  This does not affect 8.1+ customers.
 
@@ -45,7 +45,7 @@ This is technically invalid html, as a <ul> element should not be nested inside 
 It appears that Sitecore upgraded Telerik.Web.UI.dll from version 2012 to 2014 as part of the patch.  Any upgrade comes with the potential of breaking changes.  This is what appears to have happened in this case.  Instead of upgrading the version of Telerik.Web.UI.dll, we can apply the Telerik patch for the original version of the Telerik.Web.UI.dll.  Patch versions do exist for the 2012 version of the Telerik.Web.UI.dll assembly.  The patched versions can be obtained from Telerik directly.
 
 Assuming you already applied the Sitecore patch, here is how to apply the fix:
-1. Revert the following 2 files back to the version that came with the base install of Sitecore
+1. Revert the following 2 files back to the version that came with the base install of Sitecore.
     1. Telerik.Web.UI.Skins.dll
     1. Telerik.Web.UI.xml
 1. Update the Telerik.Web.UI.dll with the patch version from Telerik that applies to the version that came with the base install of Sitecore.  Note: The patched version must be obtained from Telerik.
@@ -57,7 +57,7 @@ Assuming you already applied the Sitecore patch, here is how to apply the fix:
 </dependentAssembly>
 ```
 
-We reached out to Sitecore asking why they upgraded from 2012 to 2014.  We also asked if we can use the patched versions of the assemblies instead.  They replied saying "We intended to upgrade to the latest version possible. This was also recommended by Telerik.  If you don't have any issues with patched 2012 dlls, feel free to use them"
+We reached out to Sitecore asking why they upgraded from 2012 to 2014.  We also asked if we can use the patched versions of the assemblies instead.  They replied saying "We intended to upgrade to the latest version possible. This was also recommended by Telerik.  If you don't have any issues with patched 2012 dlls, feel free to use them."
 
 I hope this helps anyone else running into similar issues.
 
