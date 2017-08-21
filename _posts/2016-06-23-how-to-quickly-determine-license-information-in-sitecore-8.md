@@ -12,6 +12,9 @@ image:
 excerpt: The Sitecore 8 login screen has a new look and feel, and by default, no longer contains the license information. 
 ---
 
+* content
+{:toc}
+
 ## Overview
 
 The Sitecore 8 login screen has a new look and feel, and by default, no longer contains the license information.
