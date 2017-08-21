@@ -25,6 +25,8 @@ Clicking the Full History button displays a pop-up with history for each version
 
 ![Sitecore Ribbon](/images/sitecore-workflow-full-history/workflow-full-history-dialog.png)
 
+## Implementation
+
 The first thing we need to do is implement the logic for the button that will appear in the ribbon. To do so, we first need to create a class that inherits from **Sitecore.Shell.Framework.Commands.Command**. We then need to override a couple methods.
 
 The first method that we need to override is the **QueryState** method. The result of this method call tells the framework whether the “Full History” button should show or not.
