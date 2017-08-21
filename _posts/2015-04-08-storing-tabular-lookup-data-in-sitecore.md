@@ -64,7 +64,7 @@ if (file != null)
 }
 ```
 
-Once a reference to the MediaItem exists, we need to load the file content so we can parse it. The easiest way to parse a .csv file is to use something already written to do that. There is a **“CsvHelper”** on **NuGet** that handles parsing csv files. We can use this package to do so: http://www.nuget.org/packages/CsvHelper/. Here is an example of how to parse the CSV file contained in the media item: (continuing the example from above)
+Once a reference to the MediaItem exists, we need to load the file content so we can parse it. The easiest way to parse a .csv file is to use something already written to do that. There is a **“CsvHelper”** on **NuGet** that handles parsing csv files. We can use this package to do so: [http://www.nuget.org/packages/CsvHelper/](http://www.nuget.org/packages/CsvHelper/). Here is an example of how to parse the CSV file contained in the media item: (continuing the example from above)
 
 ``` csharp
 public static List<Price> ReadPrices(MediaItem mediaItem)
