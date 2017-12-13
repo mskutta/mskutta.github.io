@@ -61,7 +61,7 @@ In each example above the code is iterating the current item and its base templa
 A more performant way to implement this code block is to leverage **Sitecore.Data.Managers** as follows:
 
 ``` csharp
-Using Sitecore.Data.Managers;
+using Sitecore.Data.Managers;
   
 public static bool HasBaseTemplate(this Item item, ID templateID)
 {

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TileButton Custom Sitecore SPEAK Component"
-date:   2017-07-07 00:00:00 -0500
+date:   2017-12-13 00:00:00 -0500
 categories: sitecore
 tags: sitecore speak
 author: Mike Skutta
