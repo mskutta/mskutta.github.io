@@ -5,6 +5,7 @@ date:   2017-12-13 00:00:00 -0500
 categories: sitecore
 tags: sitecore speak
 author: Mike Skutta
+excerpt: I was tasked to build a new dashboard in Sitecore. We chose to build the dashboard using SPEAK v2. This was primarily to maintain a consistent look and feel with the rest of Sitecore. For the most part, I was able to build the dashboard using existing SPEAK v2 components.  There was one component that I needed to build custom.  I figured I would share how I built the component in case others need to do something similar.
 ---
 
 * content
@@ -13,9 +14,6 @@ author: Mike Skutta
 ## Overview
 
 I was tasked to build a new dashboard in Sitecore. We chose to build the dashboard using SPEAK v2. This was primarily to maintain a consistent look and feel with the rest of Sitecore. For the most part, I was able to build the dashboard using existing SPEAK v2 components.  There was one component that I needed to build custom.  I figured I would share how I built the component in case others need to do something similar.
-
-
-
 
 ## Tile Button
 
