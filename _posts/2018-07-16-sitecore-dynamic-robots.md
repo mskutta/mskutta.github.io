@@ -5,7 +5,7 @@ date:   2018-07-16 00:00:00 -0500
 categories: sitecore
 tags: sitecore nodejs express
 author: Mike Skutta
-excerpt: In Sitecore, we have the need to serve up different robots.txt files based on environment. QA and staging environments should not be indexed and the robots.txt should indicated that.  The production environment is public and should be indexed.  To solve this problem we created the Dynamic Robots module.
+excerpt: One of the development best practices we follow at One North is make the websites we build have great SEO. Public website content is crawled and properly indexed by search engines so they appear higher in Google search pages, and can be found more easily by our client’s customers looking for information. An important part of SEO that is sometimes overlooked is understanding the security balance of what to show publicly, and when to hide non-public pages from being crawled. For instance, we wouldn’t want testing environments to show up in public search engine results.
 ---
 
 * content
