@@ -3,7 +3,7 @@ layout: post
 title: "Sitecore How-To: Add A Computed Index Field to Lucene"
 date:   2018-09-12 00:00:00 -0500
 categories: sitecore
-tags: how-to
+tags: sitecore-how-to
 author: Erik Carron and Mike Skutta
 excerpt: Computed index fields allow you to index values that are calculated during the indexing process.
 ---
