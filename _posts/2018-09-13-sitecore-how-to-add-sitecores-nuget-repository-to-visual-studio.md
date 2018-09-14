@@ -31,3 +31,7 @@ In Visual Studio
     1. Set **Source** to **https://sitecore.myget.org/F/sc-packages/api/v3/index.json**
 
 ![NuGet Package Manager Package Sources](/images/how-to-add-sitecores-nuget-repository-to-visual-studio/image2018-5-8_11-18-30.png)
+
+## Update 2018-09-14
+
+As Corey Smith @sitecorey pointed out, you can also add a **NuGet.config** to your repo.  Using this approach, the Sitecore feed is available even if you have not configured it in VS.  Here is a good example: https://github.com/Sitecore/Habitat/blob/master/nuget.config.
