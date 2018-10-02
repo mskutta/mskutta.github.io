@@ -17,7 +17,7 @@ This is an article in a series of Sitecore how-to articles. These articles are m
 
 ## How-To
 
-Sometimes unicode characters are accidentally added to content in Sitecore from data migration or from content editors copy-pasting content from some source. Depending on the unicode character, they can appear as random shapes on the front-end. Finding content with these unicode characters can be hard, but the following process will help you.
+Sometimes unicode characters are accidentally added to content in Sitecore from data migration or from content editors copy and pasting content from some source. Depending on the unicode character, they can appear as random shapes on the front-end. Finding content with these unicode characters can be hard, but the following process will help you.
 
 > Content in a non-English language will use unicode characters, so if the site has multiple languages, you will get a lot of results. To search for a specific unicode character, see the comments in the WHERE clause.
 

@@ -22,9 +22,9 @@ You may have a need to export media.  For example; if you are rebuilding a Sitec
 ## Step-by-step guide
 
 1. Install “Sitecore PowerShell Extensions-2.8.zip” https://marketplace.sitecore.net/Modules/Sitecore_PowerShell_console.aspx
-1. After install, when prompted restart your Sitecore Instance
-1. Open Content Editor and navigate to Media Library in Content Editor Tree
-1. Right Click → Scripts → Zip and Download and download will begin
-1. Wait for it to finish, and you'll be able to find your zipped file in the Data Directory of the Application 
+1. After install, when prompted, restart your Sitecore Instance.
+1. Open Content Editor and navigate to Media Library in Content Editor Tree.
+1. Right Click → Scripts → Zip and Download, and download will begin.
+1. Wait for it to finish, and you'll be able to find your zipped file in the Data Directory of the Application. 
 
-> Note- Spaces will be replace with "%20" in exported files so you may need a way to rename files to replace with spaces. Ideally with a Powershell script.
+> Note: Spaces will be replace with "%20" in exported files, so you may need a way to rename files to replace with spaces. Ideally with a Powershell script.

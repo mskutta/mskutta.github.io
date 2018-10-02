@@ -22,9 +22,9 @@ For multilingual sites, you may find the need to enable item fallback and field 
 ## Step-by-step guide
 
 1. Install Powershell Module from https://marketplace.sitecore.net/en/Modules/Sitecore_PowerShell_console.aspx
-1. Open Sitecore Powershell ISE in sitecore
-1. Set the ISE Context to master:\templates
-1. Execute the following scripts
+1. Open Sitecore Powershell ISE in sitecore.
+1. Set the ISE Context to master:\templates.
+1. Execute the following scripts:
 
 **Enable Field Fallback**
 ```powershell
