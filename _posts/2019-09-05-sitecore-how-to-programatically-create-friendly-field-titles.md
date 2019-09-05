@@ -23,10 +23,9 @@ Here's a script to create friendly field titles in Sitecore. It will convert all
 
 **CreateFieldTitles.aspx**
 ```
-<%@ Page Language="C#" AutoEventWireup="true" Debug="true" Inherits="Website.Logic.Common.Pages.AdminPage" %>
+<%@ Page Language="C#" AutoEventWireup="true" %>
 <%@ Import Namespace="Sitecore.Data" %>
 <%@ Import Namespace="Sitecore.Data.Items" %>
-<%@ Import Namespace="Website.Logic.Common.Extensions" %>
 <script runat="server">
     
     Guid templateFieldID = new Guid("{455A3E98-A627-4B40-8035-E683A0331AC7}");
@@ -54,7 +53,7 @@ Here's a script to create friendly field titles in Sitecore. It will convert all
         {
             if (child.TemplateID.ToGuid() == templateFieldID)
             {
-                var titleField = child.GetValueOrDefault<string>("Title");
+                var titleField = child.Fields["Title"].Value;
 
                 if (string.IsNullOrEmpty(titleField))
                 {

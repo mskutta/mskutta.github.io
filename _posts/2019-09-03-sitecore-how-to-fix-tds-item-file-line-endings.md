@@ -34,7 +34,7 @@ Prevent git from changing line endings in item files
 
 > Execute the following steps in a clean repository with no pending changes.
 
-1. Add the following to gitattributes. See [Git Attribute Templates](https://onenorthi.atlassian.net/wiki/pages/createpage.action?spaceKey=DOC&title=Git+Attribute+Templates&linkCreation=true&fromPageId=319815687) for a good example of what your gitattributes file should look like.
+1. Add the following to gitattributes.
 
     ```
     *.item -text
@@ -66,5 +66,5 @@ Correct any existing item files that have incorrect line ends in source control
       }
     }
     ```
-1. Any items that have richtext content or multiline content should be re-sync with Sitecore to ensure correct line endings are in the item file.
+1. Any items that have rich text content or multiline content should be re-sync with Sitecore to ensure correct line endings are in the item file.
 1. Commit any pending changes that you have for item files.
