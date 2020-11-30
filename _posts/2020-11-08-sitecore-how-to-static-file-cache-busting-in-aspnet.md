@@ -13,7 +13,7 @@ excerpt: This is a guide on how to implement cache busting in Sitecore MVC.
 
 ## Overview
 
-This is an article in a series of Sitecore how-to articles. These articles are meant to be quick guides to accomplish various tasks within Sitecore. The how-to articles have proven to be very helpful internally at *One North Interactive* https://www.onenorth.com.  These articles assume working Sitecore knowledge. I just wanted to share the articles with the community. Hopefully you find them helpful.
+This is an article in a series of Sitecore how-to articles. These articles are meant to be quick guides to accomplish various tasks within Sitecore. The how-to articles have proven to be very helpful internally at *One North* https://www.onenorth.com.  These articles assume working Sitecore knowledge. I just wanted to share the articles with the community. Hopefully you find them helpful.
 
 ## How-To
 
@@ -95,9 +95,9 @@ public sealed class FingerprintUtility
 
 ### Setting Cache-Control
 
-This will depend on your implementation and client requirements.  Our public website without gated content you should be able to have a Cache-Control policy of “public” with an expiration of 365 days.  How this is done can be debated.  I prefer to be specific in setting the cache control options on the specific folder versus setting this value at the root of the website.  Doing this at the root of the application you might inadvertently make gated content or secure content publically exposed on the CDN.
+This will depend on your implementation and client requirements.  On a public website without gated content, you should be able to have a Cache-Control policy of “public” with an expiration of 365 days.  How this is done can be debated.  I prefer to be specific in setting the cache control options on the specific folder versus setting this value at the root of the website.  Doing this at the root of the application, you might inadvertently make gated content or secure content publically exposed on the CDN.
 
-There are two ways to do this and both ways involve a web.config.  If a folder does not have a web.config then simply dropping a web.config as follow will set the Cache-Control: public, max-age=315360000
+There are two ways to do this, and both ways involve a web.config.  If a folder does not have a web.config, then simply dropping a web.config as follows will set the Cache-Control: public, max-age=315360000
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -110,7 +110,7 @@ There are two ways to do this and both ways involve a web.config.  If a folder d
 </configuration>
 ```
 
-If the folder location already includes a web.config and it can not be removed for another purpose you can update the web.config at the root with a web.debug.config or web.release.config transform as follows:
+If the folder location already includes a web.config, and it can not be removed for another purpose you can update the web.config at the root with a web.debug.config or web.release.config transform as follows:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>

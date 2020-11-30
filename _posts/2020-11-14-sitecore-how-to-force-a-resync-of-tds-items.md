@@ -13,11 +13,11 @@ excerpt: When syncing TDS items with Sitecore, TDS will not always give you the 
 
 ## Overview
 
-This is an article in a series of Sitecore how-to articles. These articles are meant to be quick guides to accomplish various tasks within Sitecore. The how-to articles have proven to be very helpful internally at *One North Interactive* https://www.onenorth.com.  These articles assume working Sitecore knowledge. I just wanted to share the articles with the community. Hopefully you find them helpful.
+This is an article in a series of Sitecore how-to articles. These articles are meant to be quick guides to accomplish various tasks within Sitecore. The how-to articles have proven to be very helpful internally at *One North* https://www.onenorth.com.  These articles assume working Sitecore knowledge. I just wanted to share the articles with the community. Hopefully you find them helpful.
 
 ## How-To
 
- When syncing TDS items with Sitecore, TDS will not always give you the `Update Project` option if there are differences. Some standard fields like `__Created` will not trigger the `Update Project` option and you will see that often if a site has been upgraded. You may want to have TDS sync everything to make sure your project matches 100%. Here is how you do that.
+ When syncing TDS items with Sitecore, TDS will not always give you the `Update Project` option if there are differences. Some standard fields like `__Created` will not trigger the `Update Project` option, and you will see that often if a site has been upgraded. You may want to have TDS sync everything to make sure your project matches 100%. Here is how you do that.
 
 ## Step-by-step guide
 
@@ -27,10 +27,10 @@ There are global settings available in Visual Studio that can change which field
 
 **To get to the settings:**
 
-1. From the main menu bar go to `Tools > Options`
+1. From the main menu bar, go to `Tools > Options`
 1. In the Options window, either scroll to *“TDS Options”* or search for it in the window and select the *“Sync Window Fields”* settings.
-1. From this window you can remove any of the default fields and click OK.
-1. Perform a TDS sync to check for changes
+1. From this window, you can remove any of the default fields and click OK.
+1. Perform a TDS sync to check for changes.
 1. Optionally, you can go back to the *“Sync Window Fields”* settings and click the *“Reset”* button to revert back to the default fields.
 
 ### Option 2 - Clean Up TDS Items

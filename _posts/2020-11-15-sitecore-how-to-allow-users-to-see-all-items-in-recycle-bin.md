@@ -13,11 +13,11 @@ excerpt: Some clients have requested to be able to view all items in the recycle
 
 ## Overview
 
-This is an article in a series of Sitecore how-to articles. These articles are meant to be quick guides to accomplish various tasks within Sitecore. The how-to articles have proven to be very helpful internally at *One North Interactive* https://www.onenorth.com.  These articles assume working Sitecore knowledge. I just wanted to share the articles with the community. Hopefully you find them helpful.
+This is an article in a series of Sitecore how-to articles. These articles are meant to be quick guides to accomplish various tasks within Sitecore. The how-to articles have proven to be very helpful internally at *One North* https://www.onenorth.com.  These articles assume working Sitecore knowledge. I just wanted to share the articles with the community. Hopefully you find them helpful.
 
 ## How-To
 
-Some clients have requested to be able to view all items in the recycle bin and not just the items they deleted. By default, Sitecore administrators are the only users who can see all items. In the past we had to create custom code to allow this, but starting in Sitecore 7.2 there is a policy that you can edit to allow this.
+Some clients have requested to be able to view all items in the recycle bin and not just the items they deleted. By default, Sitecore administrators are the only users who can see all items. In the past, we had to create custom code to allow this, but starting in Sitecore 7.2, there is a policy that you can edit to allow this.
 
 ## Step-by-step guide
 
